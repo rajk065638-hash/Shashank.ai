@@ -19,6 +19,18 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
+    server: {
+      host: '0.0.0.0',
+      port: 5173,
+      // Allow the dev server to be reached through proxied/preview hosts
+      // (e.g. *.e2b.app) instead of only localhost.
+      allowedHosts: true,
+    },
+    preview: {
+      host: '0.0.0.0',
+      port: 4173,
+      allowedHosts: true,
+    },
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],
